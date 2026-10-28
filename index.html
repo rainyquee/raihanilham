@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raihan Ilham | Brand, Game, dan Sistem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5eedd;--ink:#17141f;--card:#fffdf6;--sun:#ffc933;--iris:#6c4dff;--pine:#0b7a63;--coral:#ff6b57;--sunS:#fff1bd;--irisS:#e5deff;--pineS:#cfeee4;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 Archivo,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--iris);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+.box{background:var(--card);border:3px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink)}
+/* dock */
+.dock{position:fixed;z-index:20;top:12px;left:50%;transform:translateX(-50%);width:min(94%,740px);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 8px 6px 18px;background:var(--card);border:3px solid var(--ink);border-radius:99px;box-shadow:4px 4px 0 var(--ink)}
+.logo{font:900 1rem/1 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.03em;text-decoration:none}
+.dock nav{display:flex;gap:2px}
+.pill{display:inline-block;padding:6px 14px;border:2px solid transparent;border-radius:99px;background:transparent;color:var(--ink);font:700 .9rem/1.3 Archivo,sans-serif;font-stretch:87%;text-decoration:none;cursor:pointer}
+.pill:hover{background:var(--sun);border-color:var(--ink)}
+.pill.solid{background:var(--ink);color:var(--paper)}
+.pill.solid:hover{background:var(--coral);color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:center;padding:128px 0 76px}
+h1{margin:0 0 14px;font:900 clamp(2.6rem,10.5vw,5.6rem)/.95 Archivo,sans-serif;font-stretch:125%;letter-spacing:-.04em}
+h1 span{display:block;width:max-content;max-width:100%;margin-bottom:12px;padding:.04em .2em .1em;border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink)}
+h1 span:nth-child(1){background:var(--sun);transform:rotate(-1.5deg)}
+h1 span:nth-child(2){background:var(--coral);transform:rotate(1deg);margin-left:6vw}
+h1 span:nth-child(3){background:var(--iris);color:#fff;transform:rotate(-.5deg)}
+.sub{margin:6px 0 26px;font:italic 800 clamp(1.3rem,3.6vw,2rem)/1.2 Archivo,sans-serif;letter-spacing:-.03em}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.btn{display:inline-block;padding:10px 20px;border:3px solid var(--ink);border-radius:12px;background:var(--sun);color:var(--ink);font:800 1rem/1.3 Archivo,sans-serif;text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn.alt{background:var(--card)}
+.bio{max-width:33rem;margin:0 0 22px}
+.strip{display:flex;width:max-content;max-width:100%;margin:0;padding:0;list-style:none;overflow:hidden;border:3px solid var(--ink);border-radius:12px;background:var(--card)}
+.strip li{padding:5px 14px;border-right:3px solid var(--ink);font:700 .9rem/1.6 Archivo,sans-serif;font-stretch:87%}
+.strip li:last-child{border:0}
+.strip li:nth-child(1){background:var(--sun)}
+.strip li:nth-child(2){background:var(--pine);color:#fff}
+.badge{position:relative;justify-self:center;width:100%;max-width:280px;padding:34px 14px 16px;transform:rotate(-3deg)}
+.badge::before{content:"";position:absolute;top:12px;left:50%;width:54px;height:14px;margin-left:-27px;border:3px solid var(--ink);border-radius:99px;background:var(--paper)}
+.photo{position:relative;display:grid;place-items:center;aspect-ratio:4/5;overflow:hidden;border:3px solid var(--ink);border-radius:12px;background:var(--sun);font:900 4.5rem/1 Archivo,sans-serif;font-stretch:125%;letter-spacing:-.05em}
+.photo img,.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge .nm{margin:14px 0 0;font:800 1.15rem/1.2 Archivo,sans-serif;letter-spacing:-.02em}
+.badge .hd{margin:2px 0 0;font:600 .95rem/1.4 Archivo,sans-serif;font-stretch:87%}
+/* sections */
+section{padding:40px 0 56px}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 26px;padding-bottom:10px;border-bottom:3px solid var(--ink)}
+h2{margin:0;font:900 clamp(1.8rem,4.6vw,2.7rem)/1.05 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.035em}
+.tag{display:inline-block;padding:1px 10px;border:2px solid var(--ink);border-radius:6px;background:var(--card);color:var(--ink);font:700 .85rem/1.6 Archivo,sans-serif;font-stretch:75%;letter-spacing:.03em}
+.tag.s{background:var(--sun)}.tag.c{background:var(--coral)}.tag.i{background:var(--iris);color:#fff}.tag.p{background:var(--pine);color:#fff}
+.proj{display:grid;gap:22px}
+.row{display:grid;grid-template-columns:240px minmax(0,1fr);overflow:hidden;text-decoration:none;transition:transform .12s,box-shadow .12s}
+.row:nth-child(even){grid-template-columns:minmax(0,1fr) 240px}
+.row:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.shot{position:relative;display:grid;place-items:center;min-height:170px;padding:12px;overflow:hidden;border-right:3px solid var(--ink);text-align:center;word-break:break-word;font:900 1.15rem/1.2 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.02em}
+.row:nth-child(even) .shot{order:2;border-right:0;border-left:3px solid var(--ink)}
+.info{align-self:center;padding:20px 24px}
+.info h3{margin:10px 0 6px;font:800 1.45rem/1.15 Archivo,sans-serif;letter-spacing:-.02em}
+.info p{max-width:32rem;margin:0}
+.r1{background:var(--sunS)}.r1 .shot{background:var(--sun)}
+.r2{background:var(--irisS)}.r2 .shot{background:var(--iris);color:#fff}
+.r3{background:var(--pineS)}.r3 .shot{background:var(--pine);color:#fff}
+.soon{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 20px;border:3px dashed var(--ink);border-radius:20px;font-weight:700}
+.soon p{flex:1 1 260px;margin:0}
+.load{width:120px;height:16px;overflow:hidden;border:3px solid var(--ink);border-radius:99px}
+.load i{display:block;width:62%;height:100%;background:repeating-linear-gradient(135deg,var(--ink) 0 6px,var(--sun) 6px 12px)}
+.entry{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:22px;align-items:center;padding:20px 24px}
+.yr{padding-right:20px;border-right:3px dashed var(--ink);font:900 2rem/1 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.04em}
+.yr small{display:block;margin-top:4px;font:700 .9rem/1.2 Archivo,sans-serif;font-stretch:75%;letter-spacing:.03em}
+.entry h3{margin:0 0 4px;font:800 1.35rem/1.2 Archivo,sans-serif;letter-spacing:-.02em}
+.entry p{margin:0}
+/* ribbon */
+.ribbon{width:104%;margin:12px 0 48px -2%;overflow:hidden;background:var(--ink);color:var(--paper);white-space:nowrap;transform:rotate(-1.4deg)}
+.ribbon div{display:inline-block;padding:12px 0;font:900 1.5rem/1.3 Archivo,sans-serif;font-stretch:75%;animation:slide 40s linear infinite reverse}
+.ribbon i{display:inline-block;width:14px;height:14px;margin:0 26px;vertical-align:middle;background:var(--coral);border:3px solid var(--paper);box-shadow:3px 3px 0 var(--iris)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* cara kerja */
+.dark{padding:60px 0 68px;background:var(--ink);color:var(--paper)}
+.dark .sh{border-color:var(--paper)}
+.dark :focus-visible{outline-color:var(--sun)}
+.how-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}
+.big{margin:0 0 16px;font:900 clamp(1.9rem,5.2vw,3.2rem)/1.22 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.035em}
+mark{padding:0 .2em;border:3px solid var(--paper);border-radius:10px;background:var(--coral);color:var(--ink)}
+mark.m2{background:var(--iris);color:#fff}
+.lead{max-width:34rem;margin:0;font-size:1.1rem}
+.fig{width:min(260px,100%);margin:0;overflow:hidden;border:3px solid var(--paper);border-radius:16px;box-shadow:6px 6px 0 var(--pine);transform:rotate(2deg)}
+.fig img{display:block;width:100%;height:auto}
+.fig.noimg{display:none}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0 22px}
+.pn{padding:20px 22px;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:6px 6px 0 var(--coral)}
+.pn.p2{box-shadow:6px 6px 0 var(--iris)}
+.pn h3{margin:0 0 6px;font:800 1.2rem/1.2 Archivo,sans-serif;letter-spacing:-.02em}
+.pn p{margin:0}
+.next{margin:0;padding:12px 18px;border:3px dashed var(--paper);border-radius:14px;font-weight:700}
+/* keahlian */
+.sheet{overflow:hidden}
+.srow{display:grid;grid-template-columns:46px minmax(0,1fr) minmax(0,1.3fr);gap:18px;align-items:center;padding:18px 22px;border-top:3px solid var(--ink)}
+.srow:first-child{border-top:0}
+.ix{display:grid;place-items:center;width:46px;height:46px;border:3px solid var(--ink);border-radius:12px;font:900 1.2rem/1 Archivo,sans-serif}
+.s1 .ix{background:var(--sun)}.s2 .ix{background:var(--iris);color:#fff}.s3 .ix{background:var(--pine);color:#fff}.s4 .ix{background:var(--coral)}
+.srow h3{margin:0;font:800 1.2rem/1.2 Archivo,sans-serif;letter-spacing:-.02em}
+.st{margin:0;font-size:.95rem}
+.meter{height:12px;margin-top:8px;overflow:hidden;border:2px solid var(--ink);border-radius:99px;background:var(--card)}
+.meter i{display:block;width:92%;height:100%;background:var(--coral)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.chips span{padding:0 10px;border:2px solid var(--ink);border-radius:6px;background:var(--card);font:700 .85rem/1.8 Archivo,sans-serif;font-stretch:75%;letter-spacing:.03em}
+/* kontak */
+.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;overflow:hidden;background:var(--sun)}
+.ticket::before,.ticket::after{content:"";position:absolute;right:207px;width:28px;height:28px;border:3px solid var(--ink);border-radius:50%;background:var(--paper)}
+.ticket::before{top:-16px}.ticket::after{bottom:-16px}
+.tk-main{padding:44px 34px 46px}
+.lbl{margin:0 0 8px;font:700 1rem/1.3 Archivo,sans-serif;font-stretch:87%}
+.mail{margin:0 0 24px;font:900 clamp(1.4rem,4.4vw,2.6rem)/1.1 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.03em;word-break:break-word}
+.tk-stub{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:26px;border-left:3px dashed var(--ink)}
+.tk-stub .btn{background:var(--card);text-align:center}
+footer{margin-top:56px;padding:22px 0 28px;border-top:3px solid var(--ink);font:600 .95rem/1.5 Archivo,sans-serif;font-stretch:87%}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:820px){
+.hero{grid-template-columns:1fr;gap:36px;padding-top:112px}
+.badge{max-width:240px}
+.row,.row:nth-child(even){grid-template-columns:1fr}
+.row .shot,.row:nth-child(even) .shot{order:0;min-height:110px;border:0;border-bottom:3px solid var(--ink)}
+.entry{grid-template-columns:1fr;gap:12px}
+.yr{padding:0;border:0}
+.how-top,.split{grid-template-columns:1fr}
+.fig{width:200px}
+.srow{grid-template-columns:46px minmax(0,1fr)}
+.chips{grid-column:1/-1;justify-content:flex-start}
+.ticket{grid-template-columns:1fr}
+.ticket::before,.ticket::after{display:none}
+.tk-stub{flex-direction:row;flex-wrap:wrap;border-left:0;border-top:3px dashed var(--ink)}
+}
+@media (max-width:560px){.dock .opt{display:none}.tk-main{padding:32px 22px}}
+@media (prefers-reduced-motion:reduce){.ribbon div{animation:none}.btn,.row{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="dock">
+<a class="logo" href="#top">Raihan Ilham</a>
+<nav aria-label="Navigasi utama"><a class="pill" href="#karya">Karya</a><a class="pill opt" href="#cara">Cara kerja</a><a class="pill opt" href="#keahlian">Keahlian</a><a class="pill solid" href="#kontak">Kontak</a></nav>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1><span>Brand,</span><span>game,</span><span>sistem.</span></h1>
+<p class="sub">satu orang, semua jalan.</p>
+<div class="btns"><a class="btn" href="#karya">Lihat karya</a><a class="btn alt" href="#kontak">Sapa saya</a></div>
+<p class="bio">Saya <b>Raihan Ilham Ramadhan</b> dari Surabaya. Sejak 2024 saya membangun komunitas Mobile Legends dan website interaktif di bawah nama <b>rainyquee</b>. Berjalan sendiri, ditemani AI.</p>
+<ul class="strip"><li>Surabaya, ID</li><li>Solo</li><li>Sejak 2024</li></ul>
+</div>
+<aside class="box badge" aria-label="Kartu nama">
+<div class="photo"><img data-img="avatar" alt="Foto Raihan Ilham"><b>RI</b></div>
+<p class="nm">Raihan Ilham Ramadhan</p>
+<p class="hd">rainyquee, Surabaya</p>
+</aside>
+</div>
+
+<section id="karya"><div class="wrap">
+<div class="sh"><h2>Sedang dibangun</h2><span class="tag s">3 aktif</span></div>
+<div class="proj">
+<a class="box row r1" href="https://timernjir.pages.dev/" target="_blank" rel="noopener">
+<div class="shot"><img data-img="thumb-ucapan" alt="Tampilan Ucapan Birthday"><b>timernjir.pages.dev</b></div>
+<div class="info"><span class="tag c">Ucapan</span><h3>Ucapan Birthday ↗</h3><p>Website ucapan ulang tahun yang bisa dibuka lewat satu link.</p></div>
+</a>
+<a class="box row r2" href="https://andalus.pages.dev/" target="_blank" rel="noopener">
+<div class="shot"><img data-img="thumb-andalus" alt="Tampilan Asal Muasal Andalus"><b>andalus.pages.dev</b></div>
+<div class="info"><span class="tag i">Slide</span><h3>Asal Muasal Andalus ↗</h3><p>Web slide interaktif tentang asal muasal Andalus.</p></div>
+</a>
+<a class="box row r3" href="https://kaksh-inanotheruniverse.pages.dev/" target="_blank" rel="noopener">
+<div class="shot"><img data-img="thumb-universe" alt="Tampilan In Another Universe"><b>kaksh-inanotheruniverse.pages.dev</b></div>
+<div class="info"><span class="tag p">Cerita</span><h3>In Another Universe ↗</h3><p>Alternate universe berbentuk website interaktif, seperti ponsel milik tokoh utamanya.</p></div>
+</a>
+<div class="soon"><span class="tag s">Segera</span><p>Update berikutnya: website yang membuat website otomatis. Kirim kebutuhan, Claude yang menyusunnya.</p><div class="load" aria-hidden="true"><i></i></div></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sh"><h2>Rak proyek</h2></div>
+<div class="box entry"><div class="yr">2024<small>sampai kini</small></div><div><h3>Komunitas MLBB</h3><p>Komunitas Mobile Legends yang saya bangun dan jalankan sejak 2024.</p></div><span class="tag p">Komunitas</span></div>
+</div></section>
+
+<div class="ribbon" aria-hidden="true"><div id="rb">Brand<i></i>Game<i></i>Sistem<i></i>Sejak 2024<i></i>rainyquee<i></i></div></div>
+
+<section class="dark" id="cara"><div class="wrap">
+<div class="sh"><h2>Cara kerja</h2></div>
+<div class="how-top">
+<div>
+<p class="big">Saya punya <mark>ide</mark>, tapi tidak dengan <mark class="m2">keberanian</mark>.</p>
+<p class="lead">Dengan memecut AI, saya melawan dunia. Ide datang dari kepala, sisanya dikerjakan bersama AI.</p>
+</div>
+<figure class="fig"><img data-img="cara-kerja" alt="Ilustrasi cara kerja"></figure>
+</div>
+<div class="split">
+<div class="pn"><h3>Dibantu AI</h3><p>Desain dibantu AI, kode dibantu AI, hosting di Pages.dev, dan Claude sebagai partner utama.</p></div>
+<div class="pn p2"><h3>Jalan sendiri</h3><p>Berbasis di Surabaya. Jalan sendiri sejak 2024.</p></div>
+</div>
+<p class="next">Berikutnya: website otomatis yang tinggal menerima kebutuhan, lalu disusun oleh Claude.</p>
+</div></section>
+
+<section id="keahlian"><div class="wrap">
+<div class="sh"><h2>Keahlian</h2></div>
+<div class="box sheet">
+<div class="srow s1"><span class="ix">G</span><div><h3>Game ML</h3><p class="st">komunitas sejak 2024</p></div><div class="chips"><span>Ranked</span><span>Komunitas</span><span>Event</span><span>Meta</span></div></div>
+<div class="srow s2"><span class="ix">ع</span><div><h3>Bahasa Arab</h3><p class="st">teks, sastra, dan presentasi</p></div><div class="chips"><span>Baca</span><span>Sastra</span><span>Slide</span><span>Terjemah</span></div></div>
+<div class="srow s3"><span class="ix">C</span><div><h3>Menulis cerita</h3><p class="st">alternate universe dan dunia fiksi</p></div><div class="chips"><span>AU</span><span>Karakter</span><span>Dialog</span><span>Alur</span></div></div>
+<div class="srow s4"><span class="ix">Y</span><div><h3>Yearning</h3><p class="st">level: sangat rindu</p><div class="meter" role="img" aria-label="Level rindu hampir penuh"><i></i></div></div><div class="chips"><span>Rindu</span><span>Malam</span><span>Hujan</span><span>Playlist</span></div></div>
+</div>
+</div></section>
+
+<section id="kontak"><div class="wrap">
+<div class="box ticket">
+<div class="tk-main"><p class="lbl">Halo! Hubungi saya</p><p class="mail" id="em">raihanilham820@gmail.com</p><button class="btn" id="cp" type="button">Salin email</button></div>
+<div class="tk-stub"><a class="btn" href="https://www.tiktok.com/@rainyque" target="_blank" rel="noopener">TikTok</a><a class="btn" href="https://www.instagram.com/rainyquee" target="_blank" rel="noopener">Instagram</a><a class="btn" href="https://x.com/rainyquee" target="_blank" rel="noopener">X</a></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span><b>Raihan Ilham</b></span><span>Surabaya, Indonesia</span><span>© 2026</span><span>jalani hidup walau tak mau</span></div></footer>
+
+<script>
+/* Slot gambar: taruh avatar, thumb-ucapan, thumb-andalus, thumb-universe, cara-kerja (.jpg atau .png) sefolder dengan index.html */
+document.querySelectorAll("img[data-img]").forEach(function(im){
+var n=im.dataset.img,ext=["jpg","png"],i=0;
+im.onerror=function(){i++;if(i<ext.length){im.src=n+"."+ext[i]}else{im.parentNode.classList.add("noimg");im.remove()}};
+im.src=n+"."+ext[0];
+});
+var rb=document.getElementById("rb");rb.innerHTML=new Array(9).join(rb.innerHTML);
+document.getElementById("cp").addEventListener("click",function(){
+var b=this,t=document.getElementById("em").textContent;
+function ok(){b.textContent="Tersalin";setTimeout(function(){b.textContent="Salin email"},1600)}
+try{navigator.clipboard.writeText(t).then(ok,function(){b.textContent="Salin manual"})}catch(e){b.textContent="Salin manual"}
+});
+</script>
+</body>
+</html>
