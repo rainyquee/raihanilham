@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5eedd">
 <title>Raihan Ilham | Brand, Game, dan Sistem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,11 +11,13 @@
 <style>
 :root{--paper:#f5eedd;--ink:#17141f;--card:#fffdf6;--sun:#ffc933;--iris:#6c4dff;--pine:#0b7a63;--coral:#ff6b57;--sunS:#fff1bd;--irisS:#e5deff;--pineS:#cfeee4;color-scheme:light}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 Archivo,system-ui,sans-serif;overflow-x:hidden}
-a{color:inherit}
+a{color:inherit;-webkit-tap-highlight-color:transparent}
+a,button{touch-action:manipulation}
+main{overflow-x:clip}
 :focus-visible{outline:3px solid var(--iris);outline-offset:3px}
-.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right)) 0 max(20px,env(safe-area-inset-left))}
 .box{background:var(--card);border:3px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink)}
 /* dock */
 .dock{position:fixed;z-index:20;top:12px;left:50%;transform:translateX(-50%);width:min(94%,740px);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 8px 6px 18px;background:var(--card);border:3px solid var(--ink);border-radius:99px;box-shadow:4px 4px 0 var(--ink)}
@@ -87,7 +90,7 @@ h2{margin:0;font:900 clamp(1.8rem,4.6vw,2.7rem)/1.05 Archivo,sans-serif;font-str
 .how-top{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:36px;align-items:center}
 .how-top>*{min-width:0}
 .big{margin:0 0 16px;font:900 clamp(1.9rem,5.2vw,3.2rem)/1.22 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.035em}
-mark{padding:0 .2em;border:3px solid var(--paper);border-radius:10px;background:var(--coral);color:var(--ink)}
+mark{-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .2em;border:3px solid var(--paper);border-radius:10px;background:var(--coral);color:var(--ink)}
 mark.m2{background:var(--iris);color:#fff}
 .lead{max-width:34rem;margin:0;font-size:1.1rem}
 .fig{width:100%;max-width:260px;justify-self:end;margin:0;overflow:hidden;border:3px solid var(--paper);border-radius:16px;box-shadow:6px 6px 0 var(--pine);transform:rotate(2deg)}
@@ -138,7 +141,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .ticket::before,.ticket::after{display:none}
 .tk-stub{flex-direction:row;flex-wrap:wrap;border-left:0;border-top:3px dashed var(--ink)}
 }
-@media (max-width:560px){.dock .opt{display:none}.tk-main{padding:32px 22px}}
+@media (max-width:560px){
+html{scroll-padding-top:16px}
+.dock{top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px);max-width:420px;padding:5px;box-shadow:3px 3px 0 var(--ink)}
+.logo{display:none}
+.dock nav{width:100%}
+.pill{flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:4px 6px;font-size:.84rem;text-align:center;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px}
+.hero{gap:32px;padding-top:calc(36px + env(safe-area-inset-top,0px));padding-bottom:48px}
+.btns .btn{flex:1 1 140px;padding:14px 16px}
+.strip li{padding:5px 10px;font-size:.85rem}
+.row .shot,.row:nth-child(even) .shot{min-height:0;aspect-ratio:16/9}
+.info{padding:16px 18px}
+.info h3{font-size:1.3rem}
+.entry{padding:18px}
+.entry .tag{justify-self:start}
+.ribbon{margin-bottom:32px}
+.ribbon div{font-size:1.2rem}
+.dark{padding:48px 0 56px}
+.fig{width:220px;justify-self:center}
+.srow{padding:16px;gap:14px}
+.tk-main{padding:30px 20px}
+.tk-stub{padding:20px;gap:10px}
+.tk-stub .btn{flex:1 1 auto;padding:12px 14px}
+footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px));text-align:center}
+footer .wrap{justify-content:center}
+}
+@media (max-width:360px){.pill{font-size:.76rem;padding:4px 3px}}
+@media (hover:none){
+.pill:not(.solid):hover{background:transparent;border-color:transparent}
+.pill.solid:hover{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:none;box-shadow:4px 4px 0 var(--ink)}
+.row:hover{transform:none;box-shadow:6px 6px 0 var(--ink)}
+.pill:not(.solid):active{background:var(--sun);border-color:var(--ink)}
+.pill.solid:active{background:var(--coral);color:var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.row:active{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink)}
+}
 @media (prefers-reduced-motion:reduce){.ribbon div{animation:none}.btn,.row{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -229,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <script>
 /* Slot gambar: taruh avatar, thumb-ucapan, thumb-andalus, thumb-universe, cara-kerja (.jpg atau .png) sefolder dengan index.html */
 document.querySelectorAll("img[data-img]").forEach(function(im){
-var n=im.dataset.img,ext=["jpg","png"],i=0;
+var n=im.dataset.img,ext=["jpg","png"],i=0;im.decoding="async";if(n!=="avatar")im.loading="lazy";
 im.onerror=function(){i++;if(i<ext.length){im.src=n+"."+ext[i]}else{im.parentNode.classList.add("noimg");im.remove()}};
 im.src=n+"."+ext[0];
 });
